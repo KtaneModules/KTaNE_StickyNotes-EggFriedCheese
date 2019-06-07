@@ -1,0 +1,19 @@
+Sticky Notes 1.1
+Oh, another day at work, Which job did I need to do first? OH MY GOD, WHERE DID ALL THESE STICKY NOTES COME FROM!?
+
+Module ID: stickyNotes
+
+Created By: EggFriedCheese
+Thanks for Coding Help: Royal_Flu$h, Red031000, River and AshTheBash
+
+Manual available here: https://ktane.timwi.de/HTML/Sticky%20Notes.html
+
+---
+Build 1.1 Notes
+(Major Change) - Re-coded Weekend Jobs (Not working as expected) 
+
+Build 1.01 Notes
+Minor Logging Fix
+
+Build 1.0 Notes
+-Initial Release
