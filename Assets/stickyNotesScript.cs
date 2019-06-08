@@ -29,6 +29,8 @@ public class stickyNotesScript : MonoBehaviour
     [TextArea] public String[] SetAnswers;
     List<string> selected = new List<string>();
     List<string> textOnStickyNote = new List<string>();
+    public GameObject[] TwitchPlaysText;
+    bool TwitchPlaysActive;
 
     //Logging
     static int moduleIdCounter = 1;
@@ -62,6 +64,7 @@ public class stickyNotesScript : MonoBehaviour
         CompileNewList();
         ChangeTextOnNotes();
         Checking();
+        ActivateTwitchPlays();
     }
 
     public void CheckDay()
@@ -349,13 +352,13 @@ public class stickyNotesScript : MonoBehaviour
     {
         if (Date == "Column1")
         {
-            for (int i = 0; i < stickyNotesText.Length; i++)
+            for (int i = 0; i < Admin.Length; i++)
             {
-                for (int j = 0; j < Admin.Length; j++)
+                for (int j = 0; j < SetAnswers.Length; j++)
                 {
-                    if (SetAnswers[i] == Admin[j])
+                    if (Admin[i] == SetAnswers[j])
                     {
-                        Answer = SetAnswers[i];
+                        Answer = SetAnswers[j];
                         Debug.LogFormat("[Sticky Notes #{0}]: The answer selected is {1}", moduleId, Answer.Replace("\n"," "));
                         return;
                     }
@@ -364,13 +367,13 @@ public class stickyNotesScript : MonoBehaviour
         }
         else if (Date == "Column2")
         {
-            for (int i = 0; i < SetAnswers.Length; i++)
+            for (int i = 0; i < HumanResources.Length; i++)
             {
-                for (int j = 0; j < HumanResources.Length; j++)
+                for (int j = 0; j < SetAnswers.Length; j++)
                 {
-                    if (SetAnswers[i] == HumanResources[j])
+                    if (HumanResources[i] == SetAnswers[j])
                     {
-                        Answer = SetAnswers[i];
+                        Answer = SetAnswers[j];
                         Debug.LogFormat("[Sticky Notes #{0}]: The answer selected is {1}", moduleId, Answer.Replace("\n", " "));
                         return;
                     }
@@ -379,13 +382,13 @@ public class stickyNotesScript : MonoBehaviour
         }
         else if (Date == "Column3")
         {
-            for (int i = 0; i < stickyNotesText.Length; i++)
+            for (int i = 0; i < Payroll.Length; i++)
             {
-                for (int j = 0; j < Payroll.Length; j++)
+                for (int j = 0; j < SetAnswers.Length; j++)
                 {
-                    if (SetAnswers[i] == Payroll[j])
+                    if (Payroll[i] == SetAnswers[j])
                     {
-                        Answer = SetAnswers[i];
+                        Answer = SetAnswers[j];
                         Debug.LogFormat("[Sticky Notes #{0}]: The answer selected is {1}", moduleId, Answer.Replace("\n", " "));
                         return;
                     }
@@ -480,6 +483,39 @@ public class stickyNotesScript : MonoBehaviour
             module.HandleStrike();
         }
 
+    }
+
+    void ActivateTwitchPlays()
+    {
+        //TwitchPlaysActive is set by TP itself
+        if (TwitchPlaysActive)
+        {
+            for (int i = 0; i < TwitchPlaysText.Length; i++)
+                TwitchPlaysText[i].SetActive(true);
+        }
+        //I don't see any case where this would be necessary, but leaving it here anyway
+        else
+        {
+            for (int i = 0; i < TwitchPlaysText.Length; i++)
+                TwitchPlaysText[i].SetActive(false);
+        }
+    }
+
+    string TwitchHelpMessage = "Select a sticky note by using !{0} select 1. The sticky notes are numbered in no particular order for your convenience. Have some coffee by using !{0} drink";
+
+    KMSelectable[] ProcessTwitchCommand(string command)
+    {
+        //Take out press, select, chose, or spaces and hope we're left with a number.
+        command = command.ToLowerInvariant().Replace(" ", "").Replace("press", "").Replace("select", "").Replace("choose", "");
+        //Allow users to drink some coffee.
+        if (command == "drink")
+            return new KMSelectable[] { mug };
+        //An extra variable we need because the code says we need it
+        int num;
+        //int.TryParse will see if it's possible to make an int out of command. If not, tell TP the command is invalid.
+        //If it is a number, check if the number is between 1 and 10. If it's not between those values, return an invalid command.
+        if (!int.TryParse(command, out num) || num > 10 || num < 1) return null;
+        return new KMSelectable[] { buttons[num - 1] };
     }
 }
 
