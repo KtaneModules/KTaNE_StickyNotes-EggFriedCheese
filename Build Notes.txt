@@ -1,4 +1,4 @@
-Sticky Notes 1.1
+Sticky Notes 1.2.1
 Oh, another day at work, Which job did I need to do first? OH MY GOD, WHERE DID ALL THESE STICKY NOTES COME FROM!?
 
 Module ID: stickyNotes
@@ -9,6 +9,14 @@ Thanks for Coding Help: Royal_Flu$h, Red031000, River and AshTheBash
 Manual available here: https://ktane.timwi.de/HTML/Sticky%20Notes.html
 
 ---
+Build 1.2.1 Notes
+(Minor Change) - Moved notes slightly due to feedback from community
+(Minor Change) - Added sound effect to Module (???)
+
+Build 1.2 Notes
+(Major Change) - Twitch Plays Support (Thank You River)
+(Major Change) - Fixed Word Selection Code (Not working as anticipated) - Reported by River and DrMrCool (Thank you River)
+
 Build 1.1 Notes
 (Major Change) - Re-coded Weekend Jobs (Not working as expected) 
 

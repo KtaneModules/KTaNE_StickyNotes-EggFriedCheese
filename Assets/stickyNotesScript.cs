@@ -441,6 +441,7 @@ public class stickyNotesScript : MonoBehaviour
         mug.AddInteractionPunch(0.2f);
         if (counter < 3)
         {
+            Audio.PlaySoundAtTransform("drinking", transform);
             cylinders[counter].SetActive(false);
             counter++;
             Debug.LogFormat("[Sticky Notes #{0}]: You drank some coffee!", moduleId);

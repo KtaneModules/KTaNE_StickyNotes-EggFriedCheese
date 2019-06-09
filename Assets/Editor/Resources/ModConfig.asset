@@ -14,10 +14,10 @@ MonoBehaviour:
   id: stickyNotes
   title: Sticky Notes
   author: EggFriedCheese
-  description: "Sticky Notes 1.1\n\nOh, another day at work, Which job did I need
+  description: "Sticky Notes 1.2.1\n\nOh, another day at work, Which job did I need
     to do first? OH MY GOD, WHERE DID ALL THESE STICKY NOTES COME FROM!?\r\n\r\nModule
     ID: stickyNotes\r\n\r\nCreated By: EggFriedCheese\r\nThanks for Coding Help: Royal_Flu$h,
     Red031000, River\r and AshTheBash\r\n\nManual available here: https://ktane.timwi.de/HTML/Sticky%20Notes.html"
-  version: 1.1
+  version: 1.2.1
   outputFolder: build
   previewImage: {fileID: 2800000, guid: c41404cf91593d84e81ffe6aa4bb6dd3, type: 3}
